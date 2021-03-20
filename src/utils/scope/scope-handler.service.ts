@@ -1,4 +1,4 @@
-import { GroupService } from './../../services/group.service';
+import { GroupService } from "./../../services/group.service";
 import uniqid from "uniqid"
 import { Logger } from "../../.."
 import { LoggerLevel } from "../logger/logger-level.enum"

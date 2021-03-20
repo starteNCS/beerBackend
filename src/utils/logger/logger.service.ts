@@ -1,6 +1,6 @@
-import { LoggerLevel } from './logger-level.enum'
-import { ConsoleColor } from '../console-colors.enum'
-import { LoggerScope } from './logger-scope.enum'
+import { LoggerLevel } from "./logger-level.enum"
+import { ConsoleColor } from "../console-colors.enum"
+import { LoggerScope } from "./logger-scope.enum"
 
 export class LoggerService {
 

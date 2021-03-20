@@ -1,6 +1,6 @@
-import { ScopeHandler } from './src/utils/scope/scope-handler.service'
-import { GroupService } from './src/services/group.service'
-import { LoggerService } from './src/utils/logger/logger.service'
+import { ScopeHandler } from "./src/utils/scope/scope-handler.service"
+import { GroupService } from "./src/services/group.service"
+import { LoggerService } from "./src/utils/logger/logger.service"
 import Express, { raw } from "express"
 import bodyParser from "body-parser"
 import { currentTimeStamp } from "./src/utils/date.util"
