@@ -1,3 +1,4 @@
+import { Repository } from './../repository/repository.service';
 import { GroupService } from "./../../services/group.service";
 import uniqid from "uniqid"
 import { Logger } from "../../.."
@@ -20,10 +21,12 @@ export class ScopeHandler {
 
     public createScope(): string {
         const scopeId = uniqid("scope-")
-        const scope: Scope = new Scope(
-            scopeId,
-            new GroupService(scopeId),
-            [])
+        const scope: Scope = {
+            id: scopeId,
+            groupService: new GroupService(scopeId),
+            repository: new Repository(scopeId),
+            errors: []
+        }
         this.openScopes.push(scope)
 
         Logger.notifyLevel(LoggerLevel.Info, `Created Request Scope with Id ${scopeId}, current open Scopes: ${this.openScopes.length}`)

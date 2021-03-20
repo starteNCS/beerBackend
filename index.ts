@@ -22,7 +22,7 @@ const port = 3000
 
 app.use(bodyParser.json())
 app.use((req, res, next) => {
-    console.log(`${ConsoleColor.FgGreen}${req.method} ${ConsoleColor.Reset} => ${req.path} at ${currentTimeStamp()}`)
+    console.log(`${ConsoleColor.FgGreen}${req.method} ${ConsoleColor.Reset} \t${req.path} at ${currentTimeStamp()}`)
     const requestScope = ScopeHandlerInstance.createScope()
     req.rawHeaders.push(requestScope)
     next()

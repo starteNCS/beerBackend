@@ -3,7 +3,11 @@
     "extends": ["tslint:recommended"],
     "jsRules": {},
     "rules": {
-      "no-console": false
+      "no-console": false,
+      "semicolon": false,
+      "class-name": true,
+      "await-promise": true,
+      "typedef": true
     },
     "rulesDirectory": []
   }
