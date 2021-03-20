@@ -1,5 +1,5 @@
 import firebase from "firebase"
-import { ServiceBase } from './../utils/scope/service-base'
+import { ServiceBase } from "./../utils/scope/service-base"
 import { Logger } from "../.."
 
 export class GroupService extends ServiceBase {

@@ -1,8 +1,7 @@
-import { Scope } from './src/utils/scope/scope.model';
+import { Scope } from "./src/utils/scope/scope.model"
 import { ScopeHandler } from "./src/utils/scope/scope-handler.service"
-import { GroupService } from "./src/services/group.service"
 import { LoggerService } from "./src/utils/logger/logger.service"
-import Express, { raw } from "express"
+import Express from "express"
 import bodyParser from "body-parser"
 import { currentTimeStamp } from "./src/utils/date.util"
 import { ConsoleColor } from "./src/utils/console-colors.enum"
@@ -37,7 +36,7 @@ app.get("/", async (req, res) => {
     respond(res, scope[1])
 })
 
-app.listen(port, () => console.log(`🚀🚀 ${ConsoleColor.FgGreen} Beer Backend listening on port ${port} 🚀🚀`))
+app.listen(port, () => console.log(`🚀🚀 ${ConsoleColor.FgGreen} Beer Backend listening on port ${port} 🚀🚀${ConsoleColor.Reset}`))
 
 function respond(res, scope: Scope, object?: any): void {
     if(scope.errors.length !== 0){
@@ -48,7 +47,7 @@ function respond(res, scope: Scope, object?: any): void {
         return
     }
 
-    ScopeHandlerInstance.destroyScope(scope.id);
+    ScopeHandlerInstance.destroyScope(scope.id)
     res.send({
         success: true,
         data: object

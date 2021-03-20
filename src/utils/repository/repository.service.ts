@@ -1,17 +1,17 @@
-import firebase from "firebase";
-import { ServiceBase } from './../scope/service-base';
+import firebase from "firebase"
+import { ServiceBase } from "./../scope/service-base"
 
 export class Repository extends ServiceBase {
 
-    protected dbSet: firebase.database.Database;
+    protected dbSet: firebase.database.Database
 
     constructor(scopeId: string) {
         super(scopeId)
-        this.dbSet = firebase.database();
+        this.dbSet = firebase.database()
     }
 
     public get(path: string): Promise<firebase.database.DataSnapshot> {
-        return this.dbSet.ref(path).get();
+        return this.dbSet.ref(path).get()
     }
 
     public async set<T>(path: string, data: T): Promise<void> {

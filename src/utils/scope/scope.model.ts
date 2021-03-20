@@ -1,4 +1,4 @@
-import { Repository } from './../repository/repository.service';
+import { Repository } from "./../repository/repository.service"
 import { GroupService } from "./../../services/group.service"
 
 export class Scope {
