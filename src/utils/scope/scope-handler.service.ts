@@ -12,12 +12,18 @@ export class ScopeHandler {
         return this.openScopes.find(x => x.id === scopeId)
     }
 
+    public publishErrorOnScope(errorCode: string, scopeId: string): void {
+        const scopeIndex = this.openScopes.findIndex(x => x.id === scopeId)
+        Logger.notifyLevel(LoggerLevel.Error, `Raising Error with Errorcode ${errorCode}`)
+        this.openScopes[scopeIndex].errors = ["hallo"]
+    }
+
     public createScope(): string {
         const scopeId = uniqid("scope-")
-        const scope: Scope = {
-            id: scopeId,
-            groupSerivce: new GroupService()
-        }
+        const scope: Scope = new Scope(
+            scopeId,
+            new GroupService(scopeId),
+            [])
         this.openScopes.push(scope)
 
         Logger.notifyLevel(LoggerLevel.Info, `Created Request Scope with Id ${scopeId}, current open Scopes: ${this.openScopes.length}`)
@@ -25,6 +31,9 @@ export class ScopeHandler {
     }
 
     public destroyScope(scopeId: string): void {
+        const scope = this.getScope(scopeId)
+        Logger.notifyLevel(LoggerLevel.Warning, JSON.stringify(scope))
+
         this.removeScopeFromArray(scopeId)
         Logger.notifyLevel(LoggerLevel.Info, `Destroyed Request Scope with Id ${scopeId}, current open Scopes: ${this.openScopes.length}`)
     }

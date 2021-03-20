@@ -24,20 +24,20 @@ export class LoggerService {
         let prefix: string
         switch (scope) {
             case LoggerScope.Beer:
-                prefix = `${ConsoleColor.FgCyan}🍺 Beer:${ConsoleColor.Reset} `
+                prefix = `${ConsoleColor.FgCyan}🍺 Beer:${ConsoleColor.Reset} \t`
                 break
             case LoggerScope.Group:
-                prefix = `${ConsoleColor.FgBlue}🤝 Group:${ConsoleColor.Reset} `
+                prefix = `${ConsoleColor.FgBlue}🤝 Group:${ConsoleColor.Reset} \t`
                 break
             case LoggerScope.User:
-                prefix = `${ConsoleColor.FgGreen}👦 User:${ConsoleColor.Reset} `
+                prefix = `${ConsoleColor.FgGreen}👦 User:${ConsoleColor.Reset} \t`
                 break
             case LoggerScope.Statistics:
-                prefix = `${ConsoleColor.FgMagenta}〽 Statistics:${ConsoleColor.Reset} `
+                prefix = `${ConsoleColor.FgMagenta}〽 Statistics:${ConsoleColor.Reset} \t`
                 break
         }
 
-        console.log(`${prefix} ${text}`)
+        console.log(`${prefix} ${text}${ConsoleColor.Reset}`)
     }
 
     public notifyLevel(level: LoggerLevel, text: string): void {
@@ -50,17 +50,17 @@ export class LoggerService {
         let prefix: string
         switch (level) {
             case LoggerLevel.Info:
-                prefix = `💬 `
+                prefix = `💬 \t`
                 break
             case LoggerLevel.Warning:
-                prefix = `${ConsoleColor.FgYellow}⚠ Warning:${ConsoleColor.Reset} `
+                prefix = `${ConsoleColor.FgYellow}⚠ \t`
                 break
             case LoggerLevel.Error:
-                prefix = `${ConsoleColor.FgRed}‼ Error:${ConsoleColor.Reset} `
+                prefix = `${ConsoleColor.FgRed}‼ \t`
                 break
         }
 
-        console.log(`${prefix} ${text}`)
+        console.log(`${prefix} ${text}${ConsoleColor.Reset}`)
     }
 
 }
