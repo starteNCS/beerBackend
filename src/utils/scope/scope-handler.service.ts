@@ -8,7 +8,11 @@ export class ScopeHandler {
 
     private openScopes: Scope[] = []
 
-    public createScope(): Scope {
+    public getScope(scopeId: string): Scope {
+        return this.openScopes.find(x => x.id === scopeId)
+    }
+
+    public createScope(): string {
         const scopeId = uniqid("scope-")
         const scope: Scope = {
             id: scopeId,
@@ -17,7 +21,7 @@ export class ScopeHandler {
         this.openScopes.push(scope)
 
         Logger.notifyLevel(LoggerLevel.Info, `Created Request Scope with Id ${scopeId}, current open Scopes: ${this.openScopes.length}`)
-        return scope
+        return scope.id
     }
 
     public destroyScope(scopeId: string): void {
